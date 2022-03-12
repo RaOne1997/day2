@@ -7,21 +7,26 @@
         button_Square, buttons_root, buttons_division, buttons_ADD,
         buttons_Sub, buttons_MULt, buttons_num1, buttons_num2,
         buttons_num3, buttons_num4, buttons_num5, buttons_num6,
-        buttons_num7, buttons_num8, buttons_num9, buttons_num0, buttons_blank1, buttons_blank2, buttons_blank3, buttons_blank4;
+        buttons_num7, buttons_num8, buttons_num9, buttons_num0, buttons_blank1, buttons_blank2, buttons_Dot, buttons_blank4;
     MathsKeyHandler maths;
     public void Statr()
     {
         Console.WindowHeight = 50;
+        Console.WindowWidth = 100;
         Displaybackgroung();
         ShowDisplay();
         Displaykeypad();
-
-
-
+        // Displaybineary();
         maths = new MathsKeyHandler();
         maths.StartCheckingKeys(display);
 
     }
+    private void Displaybineary()
+    {
+        bineary bineary = new bineary();
+        bineary.Calculatio();
+    }
+
     private Buttons CreateAButton(int left, int top, string text)
     {
         var button = new Buttons();
@@ -60,7 +65,7 @@
 
         buttons_blank1 = CreateAButton(20, 29, "+-");
         buttons_num0 = CreateAButton(27, 29, "0");
-        buttons_blank3 = CreateAButton(34, 29, ".");
+        buttons_Dot = CreateAButton(34, 29, ".");
         buttons_blank4 = CreateAButton(41, 29, "="); // change 9 to +
 
     }
@@ -71,9 +76,9 @@
 
         display.createDisplay(20, 4, 27, ConsoleColor.Black, ConsoleColor.Cyan);
         display.Displayshow();
+       // display.DisplayProgrammer(); 
         Console.ResetColor();
     }
-
     private void Displaybackgroung()
     {
         Console.BackgroundColor = ConsoleColor.DarkBlue;
@@ -86,7 +91,6 @@
             Console.SetCursorPosition(17, row);
             Console.Write(s);
         }
-
         Console.SetCursorPosition(21, 3);
         Console.Write("Abhijeet  CALCULATOR");
         Console.ResetColor();
