@@ -18,6 +18,7 @@
         subject.Addsubject(new Courceinfo(100, "C#", "Full details", 5000d, DateTime.Now));
         subject.Addsubject(new Courceinfo(100, "Android", "Full details", 8554, DateTime.Now));
 
+        
 
     }
     public void Stat()
@@ -57,12 +58,12 @@
                     break;
 
                 case MenuItem.EditSubject:
-                    Console.WriteLine("Display any book Record");
+                    subject.updateSubject();
 
                     break;
 
                 case MenuItem.GetAnySubject:
-                    Console.WriteLine("Display All book Record");
+                    subject.displaySubjectRecord();
 
                     break;
                 case MenuItem.GetAllSubjects:
@@ -78,7 +79,7 @@
                     Environment.Exit(0);
                     break;
                 default:
-                    Console.WriteLine("Please Select Proper Operation");
+                    Console.WriteLine("\nPlease Select Proper Operation");
                     break;
             }
 

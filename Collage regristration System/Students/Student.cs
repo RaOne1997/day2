@@ -5,12 +5,14 @@ class Student : IStudent
     string s = new string('-', 47);
     string t = new string('-', 115);
     List<Studentinfo> Studentinfos = new List<Studentinfo>();
+    List<Courceinfo> Studentendrol = new List<Courceinfo>();
+
 
     public void AddstudentRecord(Studentinfo studentinfo)
     {
         Studentinfos.Add(studentinfo);
     }
-   
+
     public void DisplayAllStudent()
     {
         Console.Clear();
@@ -46,6 +48,20 @@ class Student : IStudent
         var M22 = ConsoleMessage.ReadLine<int>($"Makr of {i + 1} Subject");
         var M33 = ConsoleMessage.ReadLine<int>($"Makr of {i + 2} Subject");
         Gender gender = (Gender)Enum.Parse(typeof(Gender), Gen);
+        var yn = ConsoleMessage.ReadLine<string>($"Do you want to add Cource (y/n)");
+        if (yn == "y")
+        {
+            Menu menu1 = new Menu();
+            menu1.Test();
+            menu1.subject.displayAllSubjectRecord();
+            var Subject = ConsoleMessage.ReadLine<string>($"Enter Subject Code");
+            Subject = Subject +',';
+            string[] subjectcode = Subject.Split(',');
+            menu1.subject.Displaytable(int.Parse(subjectcode[0]));
+
+
+        }
+
         Studentinfo student = new Studentinfo(Name1, Class, Roll, DOB, M11, M22, M33, gender);
         Studentinfos.Add(student);
         ConsoleMessage.ShowHeader("Record saved successfully");

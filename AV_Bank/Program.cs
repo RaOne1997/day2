@@ -6,9 +6,9 @@ account.Userinformation();
 class Account
 {
     private string AccountNo;
-    private string Name;
+    public string Name;
     private string Accounttype;
-    protected double _balance;
+
 
     int type;
     public void Userinformation()
@@ -46,13 +46,13 @@ class Account
                 if (type == 1)
                 {
                     savingaccount.Moneywithdraw();
-                    savingaccount.updateBalance();
+                    savingaccount.updateBalance(Name);
 
                 }
                 else if (type == 2)
                 {
                     Currentaccount.Moneywithdraw();
-                    Currentaccount.updateBalance();
+                    Currentaccount.updateBalance(Name);
                 }
                 break;
             case 2:
@@ -60,12 +60,12 @@ class Account
                 if (type == 1)
                 {
                     savingaccount.MoneyDeposit();
-                    savingaccount.updateBalance();
+                    savingaccount.updateBalance(Name);
                 }
                 else if (type == 2)
                 {
                     Currentaccount.MoneyDeposit();
-                    Currentaccount.updateBalance();
+                    Currentaccount.updateBalance(Name);
                 }
                 break;
             case 3:
@@ -73,7 +73,7 @@ class Account
                 if (Accounttype == "1")
                 {
                     savingaccount.CalculateInterest();
-                    savingaccount.updateBalance();
+                    savingaccount.updateBalance(Name);
                 }
                 else
                 {

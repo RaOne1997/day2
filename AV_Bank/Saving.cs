@@ -13,15 +13,23 @@
 
     public void Moneywithdraw()
     {
-        Console.WriteLine("Enter how much amout you wan to W");
-        DepositAmount = Console.ReadLine();
-        mainbalance -= int.Parse(DepositAmount);
-        Console.WriteLine("Saving Moneywithdraw ");
+        if (mainbalance == 0)
+        {
+            Console.WriteLine("Negative Balance is  not allow");
+
+        }
+        else
+        {
+            Console.WriteLine("Enter how much amout you wan to W");
+            DepositAmount = Console.ReadLine();
+            mainbalance -= int.Parse(DepositAmount);
+            Console.WriteLine("Saving Moneywithdraw ");
+        }
     }
 
-    public void updateBalance()
+    public void updateBalance( string Name)
     {
-        Console.WriteLine("Balance : - " + mainbalance);
+        Console.WriteLine($"Balance of {Name} is {mainbalance}");
     }
     public  void CalculateInterest()
     {

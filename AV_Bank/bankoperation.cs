@@ -4,5 +4,5 @@ interface bankoperation
 {
     void MoneyDeposit();
     void Moneywithdraw();
-    void updateBalance();
+    void updateBalance(string Name);
 }

@@ -1,6 +1,4 @@
-﻿//Student student = new Student();
-//student.AddstudentRecord();
-public class ConsoleMessage
+﻿public class ConsoleMessage
 {
 
 
@@ -11,7 +9,7 @@ public class ConsoleMessage
         ConsoleTextColor.Reset();
     }
 
-  
+
 
     public static void ShowColumn(string message)
     {
@@ -59,7 +57,7 @@ public class ConsoleMessage
             }
             catch (Exception ex)
             {
-                Showerror(ex.Message);
+                Showerror($"\n{ex.Message}");
             }
         } while (true);
     }
