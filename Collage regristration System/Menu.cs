@@ -3,24 +3,28 @@
 
     protected MenuItem SelectedMenu;
     public IStudent student = new Student();
-    public ISubject subject = new CourceDEtils();
+    public ISubject subject = new Cource();
     public void Test()
     {
-        student.AddstudentRecord(new Studentinfo("AAAA", "Sy", 100, DateTime.Now, 20, 50, 40, (Gender)Enum.Parse(typeof(Gender), "Male")));
-        student.AddstudentRecord(new Studentinfo("bb", "FY", 15, DateTime.Now, 30, 60, 40, (Gender)Enum.Parse(typeof(Gender), "2")));
-        student.AddstudentRecord(new Studentinfo("CCC", "TY", 16, DateTime.Now, 40, 60, 40, (Gender)Enum.Parse(typeof(Gender), "2")));
-        student.AddstudentRecord(new Studentinfo("DDD", "FOUR year", 18, DateTime.Now, 50, 60, 0, (Gender)Enum.Parse(typeof(Gender), "2")));
+        student.AddstudentRecord(new Studentinfo("AAAA", "Sy", 100, DateTime.Now, 20, 50, 40, (Gender)Enum.Parse(typeof(Gender), "Male"),105));
+        student.AddstudentRecord(new Studentinfo("bb", "FY", 15, DateTime.Now, 30, 60, 40, (Gender)Enum.Parse(typeof(Gender), "2"),101));
+        student.AddstudentRecord(new Studentinfo("CCC", "TY", 16, DateTime.Now, 40, 60, 40, (Gender)Enum.Parse(typeof(Gender), "2"),102));
+        student.AddstudentRecord(new Studentinfo("DDD", "FOUR year", 18, DateTime.Now, 50, 60, 0, (Gender)Enum.Parse(typeof(Gender), "2"),110));
 
 
         subject.Addsubject(new Courceinfo(100, "Java", "Full details", 5000d, DateTime.Now));
-        subject.Addsubject(new Courceinfo(100, "html", "Full details", 10000d, DateTime.Now));
-        subject.Addsubject(new Courceinfo(100, "CSS", "Full details", 21000d, DateTime.Now));
-        subject.Addsubject(new Courceinfo(100, "C#", "Full details", 5000d, DateTime.Now));
-        subject.Addsubject(new Courceinfo(100, "Android", "Full details", 8554, DateTime.Now));
+        subject.Addsubject(new Courceinfo(101, "html", "Full details", 10000d, DateTime.Now));
+        subject.Addsubject(new Courceinfo(105, "CSS", "Full details", 21000d, DateTime.Now));
+        subject.Addsubject(new Courceinfo(110, "C#", "Full details", 5000d, DateTime.Now));
+        subject.Addsubject(new Courceinfo(102, "Android", "Full details", 8554, DateTime.Now));
 
-        
+
+
+
 
     }
+
+
     public void Stat()
     {
         Console.WindowHeight = 50;
@@ -67,7 +71,7 @@
 
                     break;
                 case MenuItem.GetAllSubjects:
-                    subject.displayAllSubjectRecord();
+                    subject.DisplayAllSubjectRecord();
 
                     break;
 

@@ -1,9 +1,9 @@
 ﻿
-public class CourceDEtils : ISubject
+public class Cource : ISubject
 {
     string s = new string('-', 42);
     string t = new string('-', 105);
-    List<Courceinfo> _courceInfo = new List<Courceinfo>();
+    public List<Courceinfo> _courceInfo = new List<Courceinfo>();
 
     public void Addsubject(Courceinfo courceinfo)
     {
@@ -12,7 +12,10 @@ public class CourceDEtils : ISubject
 
     public void Addsubject()
     {
-
+        Console.Clear();
+        ConsoleMessage.ShowText("--------------");
+        ConsoleMessage.ShowText("|Add Subject  |");
+        ConsoleMessage.ShowText("--------------");
         var code = ConsoleMessage.ReadLine<int>("Enter code");
         var name = ConsoleMessage.ReadLine<string>("Enter name");
         var description = ConsoleMessage.ReadLine<string>("Enter Description");
@@ -20,20 +23,20 @@ public class CourceDEtils : ISubject
         var startDate = ConsoleMessage.ReadLine<DateTime>("Enter Course Start Date");
         Courceinfo c = new Courceinfo(code, name, description, courseFees, startDate);
         _courceInfo.Add(c);
-
+        ConsoleMessage.ShowHeader("Record saved successfully");
+        Console.ReadKey();
+        Console.Clear();
     }
     public void DisplayAllSubjectRecord()
     {
-
         Console.Clear();
         ConsoleMessage.ShowHeader(s + "Module Listing Report" + s);
         ConsoleMessage.ShowHeader("|      Cource Code     |Name           |Discription           |FEE              |StartDate              |");
         ConsoleMessage.ShowHeader(t);
-
         foreach (var _courceInfo in _courceInfo)
         {
             ConsoleMessage.ShowColumn($"|{_courceInfo.CCode,15}|{_courceInfo.CName,-20}|" +
-            $"{_courceInfo.Description,-24}|{_courceInfo.CourceFee,-17}|{_courceInfo.StartDate,-23:dd-MMM-yyyy}|");
+            $"{_courceInfo.Description,-24}|{_courceInfo.CourceFee,17:N}|{_courceInfo.StartDate,-23:dd-MMM-yyyy}|");
 
         }
         ConsoleMessage.ShowColumn(t);
@@ -59,7 +62,7 @@ public class CourceDEtils : ISubject
                 ConsoleMessage.ShowHeader("|Cource Code         | Cource Name         |  Description          |CourceFee        |StartDate         |");
                 ConsoleMessage.ShowHeader(t);
                 ConsoleMessage.ShowText($"|{_courceInfo[i].CCode,20}|{_courceInfo[i].CName,-21}|" +
-                                        $"{_courceInfo[i].Description,-23}|{_courceInfo[i].CourceFee,17}|{_courceInfo[i].StartDate,18:dd-MMM-yyyy}|");
+                                        $"{_courceInfo[i].Description,-23}|{_courceInfo[i].CourceFee,17:N}|{_courceInfo[i].StartDate,18:dd-MMM-yyyy}|");
                 ConsoleMessage.ShowText(t);
                 break;
             }
@@ -84,14 +87,13 @@ public class CourceDEtils : ISubject
 
 
     }
-
     public void updateSubject()
     {
         Console.Clear();
         ConsoleMessage.ShowText("--------------");
         ConsoleMessage.ShowText("|Update student Record |");
         ConsoleMessage.ShowText("--------------");
-        var Ccode = ConsoleMessage.ReadLine<int>("Enter Roll Number");
+        var Ccode = ConsoleMessage.ReadLine<int>("Enter  Cource Code");
         string s = new string(' ', 47);
         ConsoleMessage.ShowHeader($"{s}Old Record {s}");
         Displaytable(Ccode);
@@ -112,7 +114,7 @@ public class CourceDEtils : ISubject
                         break;
                     case 2:
                         var ccode = ConsoleMessage.ReadLine<int>("Enter New Cource Code");
-                        _courceInfo[i].CCode = Ccode;
+                        _courceInfo[i].CCode = ccode;
                         break;
                     case 3:
                         var Description = ConsoleMessage.ReadLine<string>("Enter New Description ");
@@ -141,8 +143,7 @@ public class CourceDEtils : ISubject
             {
                 if (i == _courceInfo.Count - 1)
                 {
-                    Console.WriteLine(" NOt Found");
-                    Console.ReadKey();
+                   
                     Console.Clear();
                 }
                 else
@@ -152,25 +153,8 @@ public class CourceDEtils : ISubject
         }
     }
 
-    public void displayAllSubjectRecord()
-    {
-        Console.Clear();
-        ConsoleMessage.ShowHeader(s + "Module Listing Report" + s);
-        ConsoleMessage.ShowHeader("|      Cource Code     |Name           |Discription           |FEE              |StartDate              |");
-        ConsoleMessage.ShowHeader(t);
+   
 
-        foreach (var _courceInfo in _courceInfo)
-        {
-            ConsoleMessage.ShowColumn($"|{_courceInfo.CCode,15}|{_courceInfo.CName,-20}|" +
-            $"{_courceInfo.Description,-24}|{_courceInfo.CourceFee,-17}|{_courceInfo.StartDate,-23:dd-MMM-yyyy}|");
-
-        }
-        ConsoleMessage.ShowColumn(t);
-    }
-
-    public void EndrolSubject()
-    {
-        
-    }
+ 
 }
 

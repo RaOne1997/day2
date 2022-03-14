@@ -4,8 +4,9 @@ class Student : IStudent
     protected int total = 0;
     string s = new string('-', 47);
     string t = new string('-', 115);
+
     List<Studentinfo> Studentinfos = new List<Studentinfo>();
-    List<Courceinfo> Studentendrol = new List<Courceinfo>();
+    List<int> Studentendrol = new List<int>();
 
 
     public void AddstudentRecord(Studentinfo studentinfo)
@@ -13,9 +14,11 @@ class Student : IStudent
         Studentinfos.Add(studentinfo);
     }
 
+
     public void DisplayAllStudent()
     {
         Console.Clear();
+
         ConsoleMessage.ShowHeader(s + "Module Listing Report" + s);
         ConsoleMessage.ShowHeader("|      Roll     |Name              |Class            |Gender           |BirthDate            |       Total        |");
         ConsoleMessage.ShowHeader(t);
@@ -47,22 +50,24 @@ class Student : IStudent
         var M11 = ConsoleMessage.ReadLine<int>($"Makr of {i} Subject");
         var M22 = ConsoleMessage.ReadLine<int>($"Makr of {i + 1} Subject");
         var M33 = ConsoleMessage.ReadLine<int>($"Makr of {i + 2} Subject");
+        var Subject = ConsoleMessage.ReadLine<int>($"Enter Subject Code");
         Gender gender = (Gender)Enum.Parse(typeof(Gender), Gen);
-        var yn = ConsoleMessage.ReadLine<string>($"Do you want to add Cource (y/n)");
-        if (yn == "y")
-        {
-            Menu menu1 = new Menu();
-            menu1.Test();
-            menu1.subject.displayAllSubjectRecord();
-            var Subject = ConsoleMessage.ReadLine<string>($"Enter Subject Code");
-            Subject = Subject +',';
-            string[] subjectcode = Subject.Split(',');
-            menu1.subject.Displaytable(int.Parse(subjectcode[0]));
+        // var yn = ConsoleMessage.ReadLine<string>($"Do you want to add Cource (y/n)");
+        // if (yn == "y")
+        // {
+        //              Menu menu1 = new Menu();
+        //     menu1.Test();
+        //     menu1.subject.displayAllSubjectRecord();
+        //     var Subject = ConsoleMessage.ReadLine<string>($"Enter Subject Codes");
+        //     Subject = Subject +',';
+        //     string[] subjectcode = Subject.Split(',');
+        //     for (int j = 0; j <= subjectcode.Length - 2; j++)
+        //     {
+        //         Studentendrol.Add(int.Parse(subjectcode[j]));
+        //     }
+        //}
 
-
-        }
-
-        Studentinfo student = new Studentinfo(Name1, Class, Roll, DOB, M11, M22, M33, gender);
+        Studentinfo student = new Studentinfo(Name1, Class, Roll, DOB, M11, M22, M33, gender, Subject);
         Studentinfos.Add(student);
         ConsoleMessage.ShowHeader("Record saved successfully");
         Console.ReadKey();
@@ -94,7 +99,7 @@ class Student : IStudent
             if (Studentinfos[i].RollNo == RollNO)
             {
                 Console.WriteLine("Select  What do you want o update\n");
-                Console.WriteLine(" 1.Name\n 2.Class\n 3.Roll\n 4.Birthday\n 5.Gender\n");
+                Console.WriteLine(" 1.Name\n 2.Class\n 3.Roll\n 4.Birthday\n 5.Gender\n6.Change Subject");
                 var toupdate = ConsoleMessage.ReadLine<int>("Enter Your Choise");
                 switch (toupdate)
                 {
@@ -121,6 +126,11 @@ class Student : IStudent
                         Gender gender = (Gender)Enum.Parse(typeof(Gender), Gen);
                         Studentinfos[i]._gender = gender;
                         break;
+                    case 6:
+                        var Subject  = ConsoleMessage.ReadLine<int>("Gender");
+                        
+                        Studentinfos[i].subjectcode = Subject;
+                        break;
                     case 0:
                         Environment.Exit(0);
                         break;
@@ -134,7 +144,7 @@ class Student : IStudent
             {
                 if (i == Studentinfos.Count - 1)
                 {
-                    Console.WriteLine(" NOt Found");
+                   
                     Console.ReadKey();
                     Console.Clear();
                 }
@@ -147,6 +157,7 @@ class Student : IStudent
     }
     public void Displaytable(int RollNO)
     {
+
         for (int i = 0; i <= Studentinfos.Count - 1; i++)
         {
             if (Studentinfos[i].RollNo == RollNO)
@@ -155,9 +166,13 @@ class Student : IStudent
                 ConsoleMessage.ShowHeader("|Roll           |Name              |Class            |Gender           |BirthDate            |       Total        |");
                 ConsoleMessage.ShowHeader(t);
                 total = Studentinfos[i].M1 + Studentinfos[i].M2 + Studentinfos[i].M3;
-                ConsoleMessage.ShowText($"|{Studentinfos[i].RollNo,15}|{Studentinfos[i].Name,-20}|" +
+                ConsoleMessage.ShowColumn($"|{Studentinfos[i].RollNo,15}|{Studentinfos[i].Name,-20}|" +
                     $"{Studentinfos[i].Class,-15}|{Studentinfos[i]._gender,-17}|{Studentinfos[i].DOB,-21:dd-MMM-yyyy}|{total,20:N}|");
-                ConsoleMessage.ShowText(t);
+                ConsoleMessage.ShowColumn(t);
+                Menu menu1 = new Menu();
+                menu1.Test();
+                menu1.subject.Displaytable( Studentinfos[i].subjectcode);
+                 
                 break;
             }
             else
@@ -169,9 +184,10 @@ class Student : IStudent
                     ConsoleMessage.ShowText(t);
                     var Q = new string(' ', 50);
                     ConsoleMessage.ShowWarning(Q + "Not Found" + Q);
-                    Console.WriteLine('\a');
-                    Console.ReadKey();
+                    Console.Write('\a');
                     ConsoleMessage.ShowText(t);
+                    Console.ReadKey();
+                    
                 }
                 else
                     continue;
@@ -179,4 +195,7 @@ class Student : IStudent
             }
         }
     }
+
+
+
 }
