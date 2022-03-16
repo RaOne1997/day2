@@ -19,17 +19,29 @@ class Student : IStudent
     {
         Console.Clear();
 
-        ConsoleMessage.ShowHeader(s + "Module Listing Report" + s);
-        ConsoleMessage.ShowHeader("|      Roll     |Name              |Class            |Gender           |BirthDate            |       Total        |");
-        ConsoleMessage.ShowHeader(t);
+
         foreach (var studentinfo in Studentinfos)
         {
+            ConsoleMessage.ShowHeader(s + " Student Listing " + s);
+            ConsoleMessage.ShowHeader("|      Roll     |Name              |Class            |Gender           |BirthDate            |       Total        |");
+            ConsoleMessage.ShowHeader(t);
             total = studentinfo.M1 + studentinfo.M2 + studentinfo.M3;
             ConsoleMessage.ShowColumn($"|{studentinfo.RollNo,15}|{studentinfo.Name,-20}|" +
       $"{studentinfo.Class,-15}|{studentinfo._gender,-17}|{studentinfo.DOB,-21:dd-MMM-yyyy}|{total,20:N}|");
+            ConsoleMessage.ShowColumn(t);
 
-        }
-        ConsoleMessage.ShowColumn(t);
+        Menu menu1 = new Menu();
+        menu1.Test();
+
+        
+            menu1.subject.Displaytable(studentinfo.subjectcode);
+
+        
+
+
+
+    }
+        
         ConsoleMessage.ShowText("Press any key to close this Window......!");
         Console.ReadKey();
         Console.Clear();
@@ -66,6 +78,7 @@ class Student : IStudent
         //         Studentendrol.Add(int.Parse(subjectcode[j]));
         //     }
         //}
+        
 
         Studentinfo student = new Studentinfo(Name1, Class, Roll, DOB, M11, M22, M33, gender, Subject);
         Studentinfos.Add(student);

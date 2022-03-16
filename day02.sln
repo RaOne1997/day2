@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AV_Bank", "AV_Bank\AV_Bank.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Game_BGMI", "Game_BGMI\Game_BGMI.csproj", "{30882099-B24A-433B-B2FA-DB50CF1CB204}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Collage regristration System", "Collage regristration System\Collage regristration System.csproj", "{7854FE16-6BF1-47E2-8390-5ED8353D528A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Collage regristration System", "Collage regristration System\Collage regristration System.csproj", "{7854FE16-6BF1-47E2-8390-5ED8353D528A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "day11Democode", "day11Democode\day11Democode.csproj", "{E7544E91-4C1F-4B2E-A37D-7B6B2BA5D0E6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{7854FE16-6BF1-47E2-8390-5ED8353D528A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7854FE16-6BF1-47E2-8390-5ED8353D528A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7854FE16-6BF1-47E2-8390-5ED8353D528A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7544E91-4C1F-4B2E-A37D-7B6B2BA5D0E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7544E91-4C1F-4B2E-A37D-7B6B2BA5D0E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7544E91-4C1F-4B2E-A37D-7B6B2BA5D0E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7544E91-4C1F-4B2E-A37D-7B6B2BA5D0E6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
