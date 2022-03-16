@@ -10,6 +10,8 @@
         student.AddstudentRecord(new Studentinfo("bb", "FY", 15, DateTime.Now, 30, 60, 40, (Gender)Enum.Parse(typeof(Gender), "2"), 101));
         student.AddstudentRecord(new Studentinfo("CCC", "TY", 16, DateTime.Now, 40, 60, 40, (Gender)Enum.Parse(typeof(Gender), "2"), 102));
         student.AddstudentRecord(new Studentinfo("DDD", "FOUR year", 18, DateTime.Now, 50, 60, 0, (Gender)Enum.Parse(typeof(Gender), "2"), 100));
+          
+
 
 
         subject.Addsubject(new Courceinfo(100, "Java", "Full details", 5000d, DateTime.Now));
