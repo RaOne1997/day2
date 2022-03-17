@@ -1,32 +1,19 @@
 ﻿namespace day11Democode.menu
 {
-    public class Menu : IMenu
+    public partial class Menu
     {
-       
-
-        public  bool Keypressdrawtools(char keyInfo)
-        {
-            if (keyInfo >= 'a' && keyInfo <= 'z')
-            {
-                if (keyInfo != 'd' && keyInfo != 'd')
-
-                    return true;
-            }
-            return false;
-
-        }
-        public  void Displaymenuc()
+        public static void Displaymenuc()
         {
             Console.WriteLine("Change Tool, (b.Brush, r.Roller, p.Pencil, n.Pen");
 
         }
 
 
-        public  bool KeypressCanvas(char keyInfo)
+        public static bool KeypressCanvas(char keyInfo)
         {
 
 
-            if (keyInfo >= '1' && keyInfo <= '6')
+            if (keyInfo >= '1' && keyInfo <= '9')
             {
                 return true;
             }
@@ -34,10 +21,14 @@
 
         }
 
-        public  void Displaymenu()
+        public static void Displaymenu()
         {
-
+            Console.WriteLine("\nDraw Menu");
             Console.WriteLine("Change Surface, (1.Building, 2.Paper, 3.Train, 4.Plane, 5.T.Shirt");
+            Displaymenuc();
+            Console.WriteLine("d.Draw");
+            Console.WriteLine("u.Undo");
+            Console.Write("Select a choice: ");
 
         }
 

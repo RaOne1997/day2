@@ -1,9 +1,9 @@
-﻿namespace day11Democode
+﻿namespace day11Democode.Canvas
 {
     interface ICanvas
     {
-        public void Draw(IDrawTool drawTool);
-        public void Undo();
+         void Draw(IDrawTool drawTool);
+         void Undo();
 
     }
 }

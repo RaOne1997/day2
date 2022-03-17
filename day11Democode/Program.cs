@@ -1,9 +1,10 @@
 ﻿using day11Democode.Canvas;
-Draw draw = new();
-draw.Start();
+
+Draw.Start();
 
 
 
 
 
 
+//gang of four 1994

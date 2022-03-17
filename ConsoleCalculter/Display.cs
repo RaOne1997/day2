@@ -1,6 +1,11 @@
 ﻿
 class Display
 {
+
+       
+
+
+
     public int Left, Top;
     public int Width;
     ConsoleColor ForegroundColor;

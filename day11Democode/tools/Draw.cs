@@ -1,32 +1,21 @@
 ﻿using day11Democode.menu;
-
 namespace day11Democode.Canvas
 {
     class Draw
     {
-
-        public void Start()
+        public static void Start()
         {
             IDrawTool selectedDrawTool = DrawToolFactory.Create();
             ICanvas selectedCanvas = CanvasFactory.Create();
-            IMenu menu = new Menu();
             do
             {
-                Console.WriteLine("\nDraw Menu");
-                menu.Displaymenu();
-                menu.Displaymenuc();
-                Console.WriteLine("d.Draw");
-                Console.WriteLine("u.Undo");
-                Console.Write("Select a choice: ");
+                Menu.Displaymenu();
                 var keyInfo = Console.ReadKey();
-                if (menu.Keypressdrawtools(keyInfo.KeyChar))
-
-                    selectedDrawTool = DrawToolFactory.Create(keyInfo.KeyChar);
-
-                else if (menu.KeypressCanvas(keyInfo.KeyChar))
-
-                    selectedCanvas = CanvasFactory.Create(keyInfo.KeyChar);
-
+                var (canvas , tool) = MenuFactory.Keypressdrawtools(keyInfo);
+                if (tool != null)
+                    selectedDrawTool = tool;
+                if (canvas != null)
+                    selectedCanvas = canvas;
                 switch (keyInfo.KeyChar)
                 {
                     case 'd':
@@ -35,7 +24,6 @@ namespace day11Democode.Canvas
                     case 'u':
                         selectedCanvas.Undo();
                         break;
-
                 }
 
             } while (true);
@@ -43,8 +31,3 @@ namespace day11Democode.Canvas
         }
     }
 }
-
-
-
-
-
