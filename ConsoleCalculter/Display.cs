@@ -1,11 +1,6 @@
 ﻿
 class Display
 {
-
-       
-
-
-
     public int Left, Top;
     public int Width;
     ConsoleColor ForegroundColor;
@@ -37,7 +32,7 @@ class Display
             Console.SetCursorPosition(Left + Width - text.Length - 1, Top + 3);
             Console.Write(text);
         }
-      
+
     }
 
     public void Displayshow()
@@ -66,7 +61,7 @@ class Display
         Console.WriteLine(s);
         Console.SetCursorPosition(Left + Width + 5, Top + 1);
         Console.WriteLine(s);
-        Console.SetCursorPosition(Left + Width + 5,   Top + 2);
+        Console.SetCursorPosition(Left + Width + 5, Top + 2);
         Console.WriteLine(s);
         Console.SetCursorPosition(Left + +Width + 5, Top + 3);
         Console.WriteLine(s);
