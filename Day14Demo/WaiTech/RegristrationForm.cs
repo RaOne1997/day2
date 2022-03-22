@@ -10,11 +10,9 @@ namespace Day14Demo.WaiTech
     internal class RegristrationForm : Window
     {
         private const string Heading = "FirstName,LastName,Age,Gender,Married Status,City,State,Country,Univercity,WorkSpace\n";
-        //private const string FilePath = @"E:\Abhijeet warade\test\RegristrationlistData.csv";
-        private const string FilePath = @"F:\abhijeetcode\test\RegristrationlistData.csv";
-
+        private const string FilePath = @"E:\Abhijeet warade\test\RegristrationlistData.csv";
         private readonly Label _labelFirstName, _labelLastName, _labelAge, _labelCity, _labelGender, _labelMale, _labelFemale, _labelMarried,
-            _labelState, _labelCountry, _labelUnivercity, _labelWorkSpace;
+                _labelState, _labelCountry, _labelUnivercity, _labelWorkSpace;
         private readonly TextBox _textBoxFirstName, _textBoxLastName, _textBoxAge, _textBoxCity, _textBoxState, _textBoxCountry, _textBoxUniversity
             , _textBoxWorkSpace;
         private readonly RadioButton _rbFemale, _rbMale, _chkMarried;
@@ -148,8 +146,9 @@ namespace Day14Demo.WaiTech
                         break;
 
                 }
-            }else
-                _chkMarried.Text="[x]";
+            }
+            else
+                _chkMarried.Text = "[x]";
 
         }
 
