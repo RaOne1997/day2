@@ -8,15 +8,16 @@ namespace Day14Demo.ArctechInfo.Controls
 {
     internal class DropDown : Control
     {
+       
 
         private const int TextOffset = 1;
 
         private static readonly ConsoleKey[] ExitKeys =
         {
-        ConsoleKey.LeftArrow, ConsoleKey.RightArrow,
-        ConsoleKey.UpArrow, ConsoleKey.DownArrow,
-        ConsoleKey.Enter, ConsoleKey.Escape, ConsoleKey.Tab
-             };
+            ConsoleKey.LeftArrow, ConsoleKey.RightArrow,
+            ConsoleKey.UpArrow, ConsoleKey.DownArrow,
+            ConsoleKey.Enter, ConsoleKey.Escape, ConsoleKey.Tab
+         };
 
         public string Text { get; }
 
@@ -41,19 +42,32 @@ namespace Day14Demo.ArctechInfo.Controls
 
         public void Dropdowns()
         {
+
+           // AddState();
             Console.BackgroundColor = ConsoleColor.White;
             Console.ForegroundColor = ConsoleColor.Black;
-            Console.WriteLine("\n----------------------------");
-            Console.WriteLine("|                          |");
-            Console.WriteLine("|                          |");
+            Console.SetCursorPosition(Left, Top);
             Console.WriteLine("----------------------------");
+
+            //foreach (var name in state)
+            //{
+            //    Console.SetCursorPosition(Left, Top + 1);
+            //    Console.WriteLine($"|          {name}         |");
+
+            //}
+
+            //Console.WriteLine("|                          |");
+            //Console.SetCursorPosition(Left, Top+2);
+            //Console.WriteLine("|                          |");
+            Console.SetCursorPosition(Left, Top + 3);
+            Console.WriteLine("---------------------------");
             Console.ResetColor();
 
 
         }
         public void Click()
         {
-            BlinkButtonForVisualEffect();
+            //BlinkButtonForVisualEffect();
             Dropdowns();
 
             OnClicked?.Invoke(this, EventArgs.Empty);
@@ -89,10 +103,11 @@ namespace Day14Demo.ArctechInfo.Controls
                             if (ExitKeys.Contains(keyInfo.Key))
                             {
                                 Console.ResetColor();
+                                Console.SetCursorPosition(Left, Top + 1);
                                 return keyInfo;
                             }
 
-                            Console.Beep();
+                           // Console.Beep();
                             break;
                         }
                 }
@@ -100,3 +115,19 @@ namespace Day14Demo.ArctechInfo.Controls
         }
     }
 }
+
+
+
+
+
+//List<string> state = new List<string>();
+
+////public void AddState()
+////{
+////    state.Add("MAharashtr");
+////    state.Add("RJ");
+////    state.Add("Goa");
+////    state.Add("KA");
+
+
+////}
