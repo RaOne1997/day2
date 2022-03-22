@@ -8,7 +8,18 @@ namespace Day14Demo.ArctechInfo.Controls
 {
     internal class DropDown : Control
     {
-       
+
+        List<string> state = new List<string>();
+
+        public void AddState()
+        {
+            state.Add("MAharashtr");
+            state.Add("RJ");
+            state.Add("Goa");
+            state.Add("KA");
+            state.Add("MP");
+
+        }
 
         private const int TextOffset = 1;
 
@@ -43,23 +54,20 @@ namespace Day14Demo.ArctechInfo.Controls
         public void Dropdowns()
         {
 
-           // AddState();
+             AddState();
             Console.BackgroundColor = ConsoleColor.White;
             Console.ForegroundColor = ConsoleColor.Black;
             Console.SetCursorPosition(Left, Top);
             Console.WriteLine("----------------------------");
 
-            //foreach (var name in state)
-            //{
-            //    Console.SetCursorPosition(Left, Top + 1);
-            //    Console.WriteLine($"|          {name}         |");
+            foreach (var name in state)
+            {
+                Console.SetCursorPosition(Left, Top+1);
+                Console.WriteLine($"|{name,-25}|\n");
+                Top++;
 
-            //}
-
-            //Console.WriteLine("|                          |");
-            //Console.SetCursorPosition(Left, Top+2);
-            //Console.WriteLine("|                          |");
-            Console.SetCursorPosition(Left, Top + 3);
+            }
+            Console.SetCursorPosition(Left,  Top+1);
             Console.WriteLine("---------------------------");
             Console.ResetColor();
 
@@ -104,12 +112,11 @@ namespace Day14Demo.ArctechInfo.Controls
                             {
                                 Console.ResetColor();
                                 Console.SetCursorPosition(Left, Top + 1);
-                                return keyInfo;
+                                
                             }
-
-                           // Console.Beep();
                             break;
                         }
+
                 }
             }
         }
@@ -120,14 +127,4 @@ namespace Day14Demo.ArctechInfo.Controls
 
 
 
-//List<string> state = new List<string>();
 
-////public void AddState()
-////{
-////    state.Add("MAharashtr");
-////    state.Add("RJ");
-////    state.Add("Goa");
-////    state.Add("KA");
-
-
-////}

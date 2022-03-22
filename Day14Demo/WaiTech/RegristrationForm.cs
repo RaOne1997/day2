@@ -12,11 +12,11 @@ namespace Day14Demo.WaiTech
         private const string Heading = "FirstName,LastName,Age,Gender,Married Status,City,State,Country,Univercity,WorkSpace\n";
         private const string FilePath = @"E:\Abhijeet warade\test\RegristrationlistData.csv";
         private readonly Label _labelFirstName, _labelLastName, _labelAge, _labelCity, _labelGender, _labelMale, _labelFemale, _labelMarried,
-                _labelState, _labelCountry, _labelUnivercity, _labelWorkSpace,_labledropdown;
+                _labelState, _labelCountry, _labelUnivercity, _labelWorkSpace, _labledropdown;
         private readonly TextBox _textBoxFirstName, _textBoxLastName, _textBoxAge, _textBoxCity, _textBoxState, _textBoxCountry, _textBoxUniversity
             , _textBoxWorkSpace;
         private readonly RadioButton _rbFemale, _rbMale, _chkMarried;
-        private readonly Button _buttonSave, _buttonCancel, buttonRetry,_buttonSelect;
+        private readonly Button _buttonSave, _buttonCancel, buttonRetry, _buttonSelect;
         private readonly DropDown _DropDown;
 
 
@@ -34,8 +34,6 @@ namespace Day14Demo.WaiTech
             _labelAge = new Label("Age:", 2, 4);
             _textBoxAge = new TextBox(15, 4, 10);
 
-
-
             _labelCity = new Label("City:", 2, 6);
             _textBoxCity = new TextBox(15, 6, 25);
 
@@ -52,29 +50,23 @@ namespace Day14Demo.WaiTech
             _textBoxWorkSpace = new TextBox(15, 10, 25);
 
 
-
-
             //dropdown
             _labledropdown = new Label("DropDown:", 2, 12);
             //_buttonSelect = new Button(@"Select \/", 14, 12);
-          
 
-            _DropDown = new DropDown(@"Select \/ ", 14, 12);
+
+            _DropDown = new DropDown(@"Select \/ ", 15, 12);
             _DropDown.OnClicked += ButtonDropdownOnOnClicked;
-
-
-
-
 
 
             //RadioBox
             _labelGender = new Label("Gender:", 45, 4);
-            _labelMale = new Label("Male:", 55, 4);
-            _rbMale = new RadioButton(62, 4, 2);
+            _labelMale = new Label("Male:", 58, 4);
+            _rbMale = new RadioButton(65, 4, 2);
             _rbMale.OnClicked += ButtonRadiobuttonOnOnClicked;
 
-            _labelFemale = new Label("Female:", 67, 4);
-            _rbFemale = new RadioButton(76, 4, 2);
+            _labelFemale = new Label("Female:", 72, 4);
+            _rbFemale = new RadioButton(80, 4, 2);
             _rbFemale.OnClicked += ButtonRadiobuttonOnOnClicked;
 
             //CheckBox
@@ -90,7 +82,7 @@ namespace Day14Demo.WaiTech
             _buttonCancel = new Button("Cancel", 89, 16);
             _buttonCancel.OnClicked += ButtonCancelOnOnClicked;
 
-            buttonRetry = new Button("Retry", 67, 16);
+            // buttonRetry = new Button("Retry", 67, 16);
             // buttonRetry.OnClicked += ButtonCancelOnOnClicked;
 
 
@@ -122,7 +114,7 @@ namespace Day14Demo.WaiTech
             AddControl(_labelState);
             AddControl(_textBoxState);
 
-      
+
 
 
             AddControl(_labelCountry);
@@ -140,15 +132,15 @@ namespace Day14Demo.WaiTech
 
 
             //Dropdown
-           
-           // AddControl(_buttonSelect);
+
+            // AddControl(_buttonSelect);
             AddControl(_labledropdown);
             AddControl(_DropDown);
 
 
             AddControl(_buttonSave);
             AddControl(_buttonCancel);
-            AddControl(buttonRetry);
+            //  AddControl(buttonRetry);
 
             AddControl(_labelStatus);
         }
@@ -156,7 +148,7 @@ namespace Day14Demo.WaiTech
 
         private void ButtonDropdownOnOnClicked(object? sender, EventArgs e)
         {
-            
+
 
         }
         private void ButtonCheckboxOnOnClicked(object? sender, EventArgs e)
@@ -167,14 +159,13 @@ namespace Day14Demo.WaiTech
                 {
                     case "[x]":
                         _chkMarried.Text = "[y]";
-                        _chkMarried.Show();
                         break;
                     case "[y]":
                         _chkMarried.Text = "[x]";
-                        _chkMarried.Show();
                         break;
 
                 }
+                _chkMarried.Show();
             }
             else
                 _chkMarried.Text = "[x]";
