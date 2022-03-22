@@ -46,7 +46,7 @@ public abstract class Control
 
         Console.ResetColor();
     }
-
+   
     public void Hide()
     {
         Console.SetCursorPosition(Left, Top);
