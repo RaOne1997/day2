@@ -57,18 +57,22 @@ namespace Day14Demo.ArctechInfo.Controls
              AddState();
             Console.BackgroundColor = ConsoleColor.White;
             Console.ForegroundColor = ConsoleColor.Black;
-            Console.SetCursorPosition(Left, Top);
+            int Top2 = Top;
+            Console.SetCursorPosition(Left, Top2);
             Console.WriteLine("----------------------------");
 
             foreach (var name in state)
             {
-                Console.SetCursorPosition(Left, Top+1);
+                Console.SetCursorPosition(Left, Top2+1);
                 Console.WriteLine($"|{name,-25}|\n");
-                Top++;
+                Top2++;
+             
 
             }
-            Console.SetCursorPosition(Left,  Top+1);
+            Console.SetCursorPosition(Left,  Top2+1 );
             Console.WriteLine("---------------------------");
+
+            Console.SetCursorPosition(Left, Top);
             Console.ResetColor();
 
 
