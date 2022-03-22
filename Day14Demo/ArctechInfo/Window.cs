@@ -33,6 +33,18 @@ public class Window : Control
             HandleCommandKeys(keyInfo);
         }
     }
+    public void Dropdowns()
+    {
+        Console.BackgroundColor= ConsoleColor.White;
+        Console.ForegroundColor= ConsoleColor.Black;
+        Console.WriteLine("\n----------------------------");
+        Console.WriteLine("|                          |");
+        Console.WriteLine("|                          |");
+        Console.WriteLine("----------------------------");
+        Console.ResetColor();
+
+
+    }
 
     public void Close()
     {

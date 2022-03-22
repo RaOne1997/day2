@@ -12,11 +12,13 @@ namespace Day14Demo.WaiTech
         private const string Heading = "FirstName,LastName,Age,Gender,Married Status,City,State,Country,Univercity,WorkSpace\n";
         private const string FilePath = @"E:\Abhijeet warade\test\RegristrationlistData.csv";
         private readonly Label _labelFirstName, _labelLastName, _labelAge, _labelCity, _labelGender, _labelMale, _labelFemale, _labelMarried,
-                _labelState, _labelCountry, _labelUnivercity, _labelWorkSpace;
+                _labelState, _labelCountry, _labelUnivercity, _labelWorkSpace,_labledropdown;
         private readonly TextBox _textBoxFirstName, _textBoxLastName, _textBoxAge, _textBoxCity, _textBoxState, _textBoxCountry, _textBoxUniversity
             , _textBoxWorkSpace;
         private readonly RadioButton _rbFemale, _rbMale, _chkMarried;
-        private readonly Button _buttonSave, _buttonCancel, buttonRetry;
+        private readonly Button _buttonSave, _buttonCancel, buttonRetry,_buttonSelect;
+        private readonly DropDown _DropDown;
+
 
         private readonly Label _labelStatus;
         public RegristrationForm(string title, int left, int top)
@@ -48,6 +50,20 @@ namespace Day14Demo.WaiTech
 
             _labelWorkSpace = new Label("Workspace:", 2, 10);
             _textBoxWorkSpace = new TextBox(15, 10, 25);
+
+
+
+
+            //dropdown
+            _labledropdown = new Label("DropDown:", 2, 12);
+            //_buttonSelect = new Button(@"Select \/", 14, 12);
+          
+            _DropDown = new DropDown(@"Select \/ ", 14, 12);
+            _DropDown.OnClicked += ButtonDropdownOnOnClicked;
+
+
+
+
 
 
             //RadioBox
@@ -105,6 +121,7 @@ namespace Day14Demo.WaiTech
             AddControl(_labelState);
             AddControl(_textBoxState);
 
+      
 
 
             AddControl(_labelCountry);
@@ -121,6 +138,12 @@ namespace Day14Demo.WaiTech
             AddControl(_chkMarried);
 
 
+            //Dropdown
+           
+           // AddControl(_buttonSelect);
+            AddControl(_labledropdown);
+            AddControl(_DropDown);
+
 
             AddControl(_buttonSave);
             AddControl(_buttonCancel);
@@ -130,6 +153,11 @@ namespace Day14Demo.WaiTech
         }
 
 
+        private void ButtonDropdownOnOnClicked(object? sender, EventArgs e)
+        {
+            
+
+        }
         private void ButtonCheckboxOnOnClicked(object? sender, EventArgs e)
         {
             if (_chkMarried.Text != null)
@@ -186,9 +214,7 @@ namespace Day14Demo.WaiTech
         private void ButtonSaveOnOnClicked(object? sender, EventArgs e)
         {
             string data;
-            string gens = null;
-            string marriedstatus = null;
-
+            string gens = string.Empty;
             if (_textBoxFirstName.Text == "")
             {
                 _textBoxFirstName.Focus();
@@ -213,7 +239,6 @@ namespace Day14Demo.WaiTech
                 _textBoxCity.Focus();
                 _labelStatus.Show();
                 return;
-
             }
             else
             {
@@ -228,6 +253,7 @@ namespace Day14Demo.WaiTech
                     gens = "F";
                 }
 
+                string marriedstatus;
                 if (_chkMarried.Text == "[y]")
                     marriedstatus = "Married";
                 else

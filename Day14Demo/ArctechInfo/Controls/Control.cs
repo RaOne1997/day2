@@ -22,6 +22,7 @@ public abstract class Control
     }
 
     protected abstract void ShowBody();
+    
 
     public void AdjustPosition(int left, int top)
     {
