@@ -8,6 +8,7 @@ namespace Day14Demo.ArctechInfo.Controls
 {
     internal class DropDown : Control
     {
+        int Top2 ;
 
         List<string> state = new List<string>();
 
@@ -18,7 +19,7 @@ namespace Day14Demo.ArctechInfo.Controls
             state.Add("Goa");
             state.Add("KA");
             state.Add("MP");
-
+            state.Add("Ap");
         }
 
         private const int TextOffset = 1;
@@ -49,27 +50,25 @@ namespace Day14Demo.ArctechInfo.Controls
         {
             Console.Write(Text);
         }
-
-
         public void Dropdowns()
         {
 
-             AddState();
+            AddState();
             Console.BackgroundColor = ConsoleColor.White;
             Console.ForegroundColor = ConsoleColor.Black;
-            int Top2 = Top;
+            Top2 = Top;
             Console.SetCursorPosition(Left, Top2);
             Console.WriteLine("----------------------------");
 
             foreach (var name in state)
             {
-                Console.SetCursorPosition(Left, Top2+1);
+                Console.SetCursorPosition(Left, Top2 + 1);
                 Console.WriteLine($"|{name,-25}|\n");
                 Top2++;
-             
+
 
             }
-            Console.SetCursorPosition(Left,  Top2+1 );
+            Console.SetCursorPosition(Left, Top2 + 1);
             Console.WriteLine("---------------------------");
 
             Console.SetCursorPosition(Left, Top);
@@ -84,18 +83,6 @@ namespace Day14Demo.ArctechInfo.Controls
 
             OnClicked?.Invoke(this, EventArgs.Empty);
         }
-
-        private void BlinkButtonForVisualEffect()
-        {
-            Console.SetCursorPosition(Left, Top);
-
-            SendColorToConsole(ConsoleColor.Black, ConsoleColor.Black);
-            Console.Write(Text);
-            Thread.Sleep(100);
-
-            Console.ResetColor();
-        }
-
         public override ConsoleKeyInfo HandleConsoleInput()
         {
             SendColorToConsole();
@@ -108,24 +95,42 @@ namespace Day14Demo.ArctechInfo.Controls
                 switch (keyInfo.Key)
                 {
                     case ConsoleKey.Spacebar:
-                        Click();
+                        if (state.Count == 0)
+                        {
+                            Click();
+                        }
+                        break;
+                    case ConsoleKey.Enter:
+                       
+                            Top2 -= Top;
+                        
+                        
+                        break;
+                    case ConsoleKey.DownArrow:
+                        if (Top != Top2 && state.Count != 0  )
+                        {
+                            Console.SetCursorPosition(Left , Top++);
+                            Console.ResetColor();
+                        }
+                        break;
+                    case ConsoleKey.UpArrow:
+                        if (Top != Top2 - state.Count && state.Count != 0)
+                        {
+                            Console.SetCursorPosition(Left, Top--);
+                            Console.ResetColor();
+                        }
                         break;
                     default:
                         {
-                            if (ExitKeys.Contains(keyInfo.Key))
-                            {
-                                Console.ResetColor();
-                                Console.SetCursorPosition(Left, Top + 1);
-                                
-                            }
-                            break;
                         }
-
+                        break;
                 }
+
             }
         }
     }
 }
+
 
 
 
